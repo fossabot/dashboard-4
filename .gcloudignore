@@ -1,0 +1,16 @@
+# Explicitely add the gitignore because it is readed by eslint during the build
+!.gitignore
+
+# Don't check auto-generated stuff into git
+coverage
+build
+node_modules
+stats.json
+
+# Cruft
+.DS_Store
+npm-debug.log
+.idea
+
+# Terraform
+.terraform

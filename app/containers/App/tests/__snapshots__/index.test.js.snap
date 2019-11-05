@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should render and match the snapshot 1`] = `
+<div
+  className="makeStyles-root-5"
+>
+  <HelmetWrapper
+    defaultTitle="Enterprise Flow Repository"
+    defer={true}
+    encodeSpecialCharacters={true}
+    titleTemplate="%s - Enterprise Flow Repository"
+  >
+    <meta
+      content="Repository of flow for enterprise information systems"
+      name="description"
+    />
+  </HelmetWrapper>
+  <CssBaseline />
+  <Memo(ConnectFunction) />
+  <ForwardRef(WithStyles)
+    maxWidth="lg"
+  >
+    <ForwardRef(WithStyles)
+      component="div"
+      style={
+        Object {
+          "height": "100vh",
+        }
+      }
+    >
+      <main
+        className="makeStyles-content-14"
+      >
+        <div
+          className="makeStyles-toolbar-13"
+        />
+        <ForwardRef(WithStyles)
+          alignItems="stretch"
+          container={true}
+          direction="column"
+          spacing={3}
+        >
+          <ForwardRef(WithStyles)
+            item={true}
+          >
+            <Switch>
+              <Route
+                component={[Function]}
+                exact={true}
+                path="/"
+              />
+              <Route
+                component={[Function]}
+                path=""
+              />
+            </Switch>
+          </ForwardRef(WithStyles)>
+          <ForwardRef(WithStyles)
+            item={true}
+          >
+            <Footer />
+          </ForwardRef(WithStyles)>
+        </ForwardRef(WithStyles)>
+      </main>
+    </ForwardRef(WithStyles)>
+  </ForwardRef(WithStyles)>
+</div>
+`;

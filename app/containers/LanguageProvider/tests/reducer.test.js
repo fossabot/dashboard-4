@@ -1,4 +1,3 @@
-
 import languageProviderReducer from '../reducer';
 import { CHANGE_LOCALE } from '../constants';
 

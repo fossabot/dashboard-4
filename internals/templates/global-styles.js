@@ -11,8 +11,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
-  body.fontsLoaded {
-    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  body.fontLoaded {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   #app {

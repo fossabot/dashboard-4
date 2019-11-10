@@ -1,3 +1,4 @@
+
 import languageProviderReducer from '../reducer';
 import { CHANGE_LOCALE } from '../constants';
 
@@ -9,7 +10,7 @@ describe('languageProviderReducer', () => {
     });
   });
 
-  it('changes the locale to `fr`', () => {
+  it('changes the locale', () => {
     expect(
       languageProviderReducer(undefined, {
         type: CHANGE_LOCALE,

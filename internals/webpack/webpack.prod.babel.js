@@ -118,7 +118,7 @@ module.exports = require('./webpack.base.babel')({
     new WebpackPwaManifest({
       name: 'Enterprise Flow Repository',
       short_name: 'EFR',
-      description: 'Repository of flow for enterprise information systems',
+      description: 'Repository of flows for enterprise information systems',
       background_color: '#fafafa',
       theme_color: '#b1624d',
       inject: true,

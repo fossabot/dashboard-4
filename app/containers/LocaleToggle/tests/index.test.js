@@ -39,17 +39,6 @@ describe('<LocaleToggle />', () => {
     expect(container.querySelector('option[value="en"]')).not.toBeNull();
   });
 
-  it('should present the default `fr` english language option', () => {
-    const { container } = render(
-      <Provider store={store}>
-        <LanguageProvider messages={translationMessages}>
-          <LocaleToggle />
-        </LanguageProvider>
-      </Provider>,
-    );
-    expect(container.querySelector('option[value="fr"]')).not.toBeNull();
-  });
-
   describe('mapDispatchToProps', () => {
     describe('onLocaleToggle', () => {
       it('should be injected', () => {

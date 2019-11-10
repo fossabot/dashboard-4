@@ -1,13 +1,14 @@
 # Don't check auto-generated stuff into git
-coverage
-build
-node_modules
 stats.json
+coverage/
+build/
+node_modules/
+*.rbgen
 
 # Cruft
-.DS_Store
 npm-debug.log
-.idea
+.DS_Store/
+.idea/
 
 # Terraform
-.terraform
+.terraform/

@@ -1,9 +1,12 @@
 [![Build Status](https://travis-ci.org/EnterpriseFlowsRepository/dashboard.svg?branch=dev)](https://travis-ci.org/EnterpriseFlowsRepository/dashboard)
+[![Coverage Status](https://coveralls.io/repos/github/EnterpriseFlowsRepository/dashboard/badge.svg?branch=dev)](https://coveralls.io/github/EnterpriseFlowsRepository/dashboard?branch=dev)
 
 # Documentation of Dashboard
 
 ## Built With
 
+* [Travis CI](https://travis-ci.org) - Continuous integration platform
+* [Coveralls](https://coveralls.io) - Coverage tests platform
 * [README-template.md](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) - An awesome README template from @PurpleBooth
 
 ## Contributing

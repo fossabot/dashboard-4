@@ -1,7 +1,9 @@
+# Dashboard
+
 [![Build Status](https://travis-ci.org/EnterpriseFlowsRepository/dashboard.svg?branch=dev)](https://travis-ci.org/EnterpriseFlowsRepository/dashboard)
 [![Coverage Status](https://coveralls.io/repos/github/EnterpriseFlowsRepository/dashboard/badge.svg?branch=dev)](https://coveralls.io/github/EnterpriseFlowsRepository/dashboard?branch=dev)
 
-# Documentation of Dashboard
+General-purpose web UI for Enterprise Flows Repository clusters.
 
 ## Built With
 
@@ -15,11 +17,11 @@ Please read [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for details on our code of 
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/EnterpriseFlowsRepository/documentation/tags).
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/EnterpriseFlowsRepository/dashboard/tags).
 
 ## Authors
 
-* **Clément Lesné** - *Initial work* - [clementlesne](https://github.com/clementlesne)
+* **Clément Lesné** - *Initial work & maintainer* - [clementlesne](https://github.com/clementlesne)
 
 ## License
 

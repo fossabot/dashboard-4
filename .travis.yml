@@ -15,7 +15,7 @@ addons:
   sonarcloud:
     organization: enterpriseflowsrepository
     token:
-      secure: $SONAR_TOKEN
+      secure: "SdAh4x2mAogGNJ8et9nd5EgCasezucC087d1Y1QrYOdhLQmy3uV52q6i7GeIy/p9M4stEEbVrM0KfbV7/F2hO3l0pSP4jG1Ocr6wtMRp+Jj77Le37W7NthNCOKiT0BSeBmmt/IhNhGin1C53lr8b1gDeMKPhWldGaTrJQoawOlmVRHvSISIILHgGrMVglmMmK0mbCW/M+lfCv3GULuHjUejxX/usXVmhTLoclAD8qxcxszaTO2JkW/OrvHJJka3qZ98l4qIzuURyhTVB/4trtLxPFd8Z73YgVBuqeMompIFZmnljTtOr6l3UGmXbIUnb6dtyQE2CP+jxZHl6rVrGmPYnEa3nuPap6L2bdWzFItZ9AxSO69v2aTHDtB81fexiodHjm+uTAb0+dQzL5HrX5gwGMavFZL9y8Li47JFRdwXUyIXJYz53rfcva746uS9q/+UCcFFdnzb4StyIqpjpazML3LXUHUtEeuathlC1tuvKwfFI+U92ouNFhZsif74pFm3d+0gEAsky4QVG9RguyQ8IfHuJkYCNTjbHAkefnqYUMaSC4bGC0JEqVs9vDTgnCSyP/SuB/BX8OTlq4M5YqdcVle3AzskgaZUd1srlv8D1W/IJfPlNTUuW2gqW/I0eXTSJCWChqHyoj52mheZIUY/cxiwbzUg/rgaXWRoO2No="
 
 before_install:
 - export CHROME_BIN=chromium-browser

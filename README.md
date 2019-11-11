@@ -1,7 +1,7 @@
 # Dashboard
 
 [![Build Status](https://travis-ci.org/EnterpriseFlowsRepository/dashboard.svg?branch=dev)](https://travis-ci.org/EnterpriseFlowsRepository/dashboard)
-[![Coverage Status](https://coveralls.io/repos/github/EnterpriseFlowsRepository/dashboard/badge.svg?branch=dev)](https://coveralls.io/github/EnterpriseFlowsRepository/dashboard?branch=dev)
+[![Coverage Status](https://coveralls.io/repos/github/EnterpriseFlowsRepository/dashboard/badge.svg?branch=dev)](https://coveralls.io/github/EnterpriseFlowsRepository/dashboard)
 
 General-purpose web UI for Enterprise Flows Repository clusters.
 

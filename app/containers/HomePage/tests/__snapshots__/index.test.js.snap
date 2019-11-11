@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomePage /> Should render and match the snapshot 1`] = `
+<p
+  class="MuiTypography-root MuiTypography-body1"
+>
+  Hello
+</p>
+`;

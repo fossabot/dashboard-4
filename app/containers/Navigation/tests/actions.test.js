@@ -2,7 +2,7 @@ import { drawerOpen, drawerClose } from '../actions';
 import { DRAWER_OPEN, DRAWER_CLOSE } from '../constants';
 
 describe('Test actions', () => {
-  describe('`DRAWER_OPEN` Action', () => {
+  describe('Drawer open action', () => {
     it('has a type of DRAWER_OPEN', () => {
       const expected = {
         type: DRAWER_OPEN,
@@ -11,7 +11,7 @@ describe('Test actions', () => {
     });
   });
 
-  describe('`DRAWER_CLOSE` Action', () => {
+  describe('Drawer close action', () => {
     it('has a type of DRAWER_CLOSE', () => {
       const expected = {
         type: DRAWER_CLOSE,

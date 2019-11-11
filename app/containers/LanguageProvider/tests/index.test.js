@@ -7,7 +7,7 @@ import { browserHistory } from 'react-router-dom';
 import ConnectedLanguageProvider, { LanguageProvider } from '../index';
 import configureStore from '../../../configureStore';
 
-import { translationMessages } from '../../../i18n';
+import { DEFAULT_LOCALE, translationMessages } from '../../../i18n';
 
 const messages = defineMessages({
   someMessage: {
@@ -21,7 +21,7 @@ describe('<LanguageProvider />', () => {
   it('should render its children', () => {
     const children = <h1>Test</h1>;
     const { container } = render(
-      <LanguageProvider messages={messages} locale="en">
+      <LanguageProvider messages={messages} locale={DEFAULT_LOCALE}>
         {children}
       </LanguageProvider>,
     );

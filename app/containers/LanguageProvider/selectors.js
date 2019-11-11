@@ -11,7 +11,7 @@ import { initialState } from './reducer';
  * Direct selector to the language domain
  */
 
-const makeSelectLanguageDomain = state => state.language || initialState;
+const selectLanguageDomain = state => state.language || initialState;
 
 /**
  * Select the language locale
@@ -19,9 +19,9 @@ const makeSelectLanguageDomain = state => state.language || initialState;
 
 const makeSelectLocale = () =>
   createSelector(
-    makeSelectLanguageDomain,
+    selectLanguageDomain,
     languageState => languageState.locale,
   );
 
-export default makeSelectLanguageDomain;
+export default selectLanguageDomain;
 export { makeSelectLocale };

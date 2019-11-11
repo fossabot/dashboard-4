@@ -1,11 +1,24 @@
-import makeSelectLanguageDomain from '../selectors';
+import selectLanguageDomain, { makeSelectLocale } from '../selectors';
 
 describe('makeSelectLanguageDomain', () => {
-  it('should select the global state', () => {
-    const globalState = {};
-    const mockedState = {
-      language: globalState,
+  it('should select the language state', () => {
+    const languageState = {
+      languageData: {},
     };
-    expect(makeSelectLanguageDomain(mockedState)).toEqual(globalState);
+    const mockedState = {
+      language: languageState,
+    };
+    expect(selectLanguageDomain(mockedState)).toEqual(languageState);
+  });
+});
+
+describe('makeSelectLocale', () => {
+  const localeSelector = makeSelectLocale();
+  it('should select the locale', () => {
+    const state = 'en';
+    const mockedState = {
+      locale: state,
+    };
+    expect(localeSelector(mockedState)).toEqual(state);
   });
 });

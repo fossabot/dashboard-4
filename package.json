@@ -1,17 +1,17 @@
 {
-  "name": "react-boilerplate",
-  "version": "4.0.0",
-  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
+  "name": "dashboard",
+  "version": "0.0.0",
+  "description": "General-purpose web UI for Enterprise Flows Repository clusters",
   "repository": {
     "type": "git",
-    "url": "git://github.com/react-boilerplate/react-boilerplate.git"
+    "url": "git://github.com/EnterpriseFlowsRepository/dashboard.git"
   },
   "engines": {
     "npm": ">=5",
     "node": ">=8.15.1"
   },
-  "author": "Max Stoiber",
-  "license": "MIT",
+  "author": "Clément Lesné",
+  "license": "Apache-2.0",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",

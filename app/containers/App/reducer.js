@@ -7,31 +7,25 @@
  *
  */
 
-// import produce from 'immer';
-// import { HEADER_DRAWER_OPEN, HEADER_DRAWER_CLOSE } from './constants';
+import produce from 'immer';
+import {
+  DUMMY, // test
+} from './constants';
 
-// // The initial state of the App
-// export const initialState = {
-//   header: {
-//     drawer: {
-//       open: true,
-//     },
-//   },
-//   currentUser: false,
-// };
+// The initial state of the App
+export const initialState = {
+  // currently nothing
+};
 
-// /* eslint-disable default-case, no-param-reassign */
-// const appReducer = (state = initialState, action) =>
-//   produce(state, draft => {
-//     switch (action.type) {
-//       case HEADER_DRAWER_OPEN:
-//         draft.header.drawer.open = true;
-//         break;
+/* eslint-disable default-case, no-param-reassign */
+const appReducer = (state = initialState, action) =>
+  // eslint-disable-next-line no-unused-vars
+  produce(state, draft => {
+    switch (action.type) {
+      case DUMMY:
+        // draft.dummy = true;
+        break;
+    }
+  });
 
-//       case HEADER_DRAWER_CLOSE:
-//         draft.header.drawer.open = false;
-//         break;
-//     }
-//   });
-
-// export default appReducer;
+export default appReducer;

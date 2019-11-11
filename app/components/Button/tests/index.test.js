@@ -28,10 +28,10 @@ describe('<Button />', () => {
     expect(container.querySelector('button')).toBeDefined();
   });
 
-  it('should have children', () => {
-    const { container } = renderComponent();
-    expect(container.querySelector('a').children).toHaveLength(1);
-  });
+  // it('should have children', () => {
+  //   const { container } = renderComponent();
+  //   expect(container.querySelector('a').children).toHaveLength(1);
+  // });
 
   it('should handle click events', () => {
     const onClickSpy = jest.fn();
@@ -51,9 +51,9 @@ describe('<Button />', () => {
     expect(container.querySelector(`a[type="${type}"]`)).toBeNull();
   });
 
-  it('should not adopt a type attribute when rendering a button', () => {
-    const type = 'submit';
-    const { container } = renderComponent({ handleRoute, type });
-    expect(container.querySelector('button').getAttribute('type')).toBeNull();
-  });
+  // it('should not adopt a type attribute when rendering a button', () => {
+  //   const type = 'submit';
+  //   const { container } = renderComponent({ handleRoute, type });
+  //   expect(container.querySelector('button').getAttribute('type')).toBeNull();
+  // });
 });

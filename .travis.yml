@@ -1,10 +1,16 @@
 language: node_js
 
+dist: trusty
+
 services:
   - xvfb
 
 addons:
   chrome: stable
+  sonarcloud:
+    organization: "enterpriseflowsrepository"
+    token:
+      secure: "cpEcv9XwZNQcMac53S7J6W5S8eFCnp3NHSxG5T1xIkYMClM4sXGT/0653UptmpFyjrM5HurIT273VGcXNssBjR8ntfKuvAu08nzZpis1pGF5qE+sO8YHu11X6PNKsD/AzukDfZLwx3+BwjjjEAD2UesJE3rHJKGjQJxiZTeHzkpAxf3CH3mP3mDZGsUgF+na5FvAG73wjCGKII0BJJYzUcHZBlJtmiWd7rlv39gUv7JDx07mRKRlQNUwtbSDTXSE/nB9D6dJCct4N3OKO/3d6cOP/A5D0bW14VjEtpe0KLWqD8v4/Q5fC2AUb/wNiM0zb2a4Niz8rbXry5CNVLdPoLqwFWZrHA4Cdkl1zIPXsZXV+LL6HzPUf4EWfVB3c4gRA++Yv7zb4QH6iJduWzdYH3vN61qZKbxFI2GdlAPcgZMoYF6LFtA+wYJcB5LuSXQlahHkA8ASkiJqmY6O018cvFkS8cW8WRVQhL1fWvD52LdHTbfcmxur+H/EeoCCPns4e5OAM7VzGNEitLefmBsSzxVAAfSF2aiKla3ZO/oovR8x5D/W56CllZMbLOE4irtL4zY/TSXG7jne3L51HEC0Aq0mav0/wYZo9l5LgmBzRlHobKZt+EoV3HgefdLjEcIPWNJUitSmBxdgeNd+2MtLHgLuSaqfpyt5nEamJ24bFsI="
 
 before_install:
   - export CHROME_BIN=chromium-browser
@@ -14,7 +20,9 @@ script:
   - npm test -- --maxWorkers=4
   - npm run build
 
-after_success: 'npm run coveralls'
+after_success:
+  - sonar-scanner
+  - npm run coveralls
 
 notifications:
   email:

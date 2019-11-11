@@ -1,27 +1,34 @@
 language: node_js
+
 dist: trusty
+
 cache:
   npm: true
   directories:
   - "$HOME/.sonar/cache"
+
 services:
 - xvfb
+
 addons:
   chrome: stable
   sonarcloud:
     organization: enterpriseflowsrepository
+    token:
+      secure: elDsLWuzhpsyWm2IJs2fmg4OU8+HdRS7dDoX1PtBTwk/W1RV/u8l8Jw9hZMlLZqQ9/45JxJZjKSdGLyOx6L45rh+E5YsgfBnqGHeODXcDcIQZzkzYWo9mP8ehmDw7VI7A6T7GptE9JlNUJkb+r/CxVbD+I3CHkLbruBePVA1xlBtVWNA+I9vY2Z2bfrHbyOs52Hn6A87npcDBOkIFGiTek07jxfcOMWsyyRaaz/w6dPr1MuT/2KqXUhal6KrsykK0knryVR5q1hmP/fT6knBINAG6hhWej24pa7V9u7uHDCt19Pmf3amG+HJOfPnLcIIK5MXu6hYV0QmIvSZQacfQMw8GPpAVOoBqALtdf9/adEAK6FTk1JlB0FTxuESgDoNS+fLTrHBOxJ3RjrJzfIzaA/03YCcuerTRcAkTvRVB+MRhy/xmFfaLbExr512ZfwKJmsIEFzOUEfhYyCO7J9QadpzIL7AmquLiRKsowgY26DrjR3YKoWgZa0uOb0vrydhGRt6BThMcWTxzPe73iLSjcXYxpD3l6o6/ShnZkfWjeIMHpeJMp/SsG9Hw/4gqp12vFIfLXkC/gDaVXaBkGFDO/CUW2DgSi9ws9qOmp6+IgdKxYIu3moQKkf1ub/PBpH+0BC41o+KGTduT55cmT1DnNRSySOgfeYctRqIYekBMn0=
+
 before_install:
 - export CHROME_BIN=chromium-browser
 - export DISPLAY=:99.0
+
 script:
 - npm test -- --maxWorkers=4
 - npm run build
+
 after_success:
 - npm run coveralls
 - sonar-scanner -Dsonar.verbose=true -X
+
 notifications:
   email:
     on_failure: change
-env:
-  global:
-    secure: elDsLWuzhpsyWm2IJs2fmg4OU8+HdRS7dDoX1PtBTwk/W1RV/u8l8Jw9hZMlLZqQ9/45JxJZjKSdGLyOx6L45rh+E5YsgfBnqGHeODXcDcIQZzkzYWo9mP8ehmDw7VI7A6T7GptE9JlNUJkb+r/CxVbD+I3CHkLbruBePVA1xlBtVWNA+I9vY2Z2bfrHbyOs52Hn6A87npcDBOkIFGiTek07jxfcOMWsyyRaaz/w6dPr1MuT/2KqXUhal6KrsykK0knryVR5q1hmP/fT6knBINAG6hhWej24pa7V9u7uHDCt19Pmf3amG+HJOfPnLcIIK5MXu6hYV0QmIvSZQacfQMw8GPpAVOoBqALtdf9/adEAK6FTk1JlB0FTxuESgDoNS+fLTrHBOxJ3RjrJzfIzaA/03YCcuerTRcAkTvRVB+MRhy/xmFfaLbExr512ZfwKJmsIEFzOUEfhYyCO7J9QadpzIL7AmquLiRKsowgY26DrjR3YKoWgZa0uOb0vrydhGRt6BThMcWTxzPe73iLSjcXYxpD3l6o6/ShnZkfWjeIMHpeJMp/SsG9Hw/4gqp12vFIfLXkC/gDaVXaBkGFDO/CUW2DgSi9ws9qOmp6+IgdKxYIu3moQKkf1ub/PBpH+0BC41o+KGTduT55cmT1DnNRSySOgfeYctRqIYekBMn0=

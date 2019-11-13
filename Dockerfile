@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # building the code for production
-RUN npm install
+RUN npm ci --only=production
 
 # Bundle app source (see .dockerignore file specs)
 COPY . .

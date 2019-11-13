@@ -53,20 +53,20 @@ after_success:
   # Push the coverage report to Coveralls cloud platform
   - npm run coveralls
   # Launch SonarQube implementation then send the report to SonarCloud cloud platform
-  - sonar-scanner -Dsonar.verbose=true -X
+  - sonar-scanner
   # Build the container, plus its tags
-  - docker build \
-      -t enterpriseflowsrepository/dashboard:latest \
-      -t enterpriseflowsrepository/dashboard:$DOCKER_TAG_SHORT \
-      -t enterpriseflowsrepository/dashboard:$DOCKER_TAG \
+  - docker build
+      -t enterpriseflowsrepository/dashboard:latest
+      -t enterpriseflowsrepository/dashboard:$DOCKER_TAG_SHORT
+      -t enterpriseflowsrepository/dashboard:$DOCKER_TAG
       .
   # Login to the container repository "hub.docker.com"
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin hub.docker.com
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   # Push the image built inside the CI to the container repository, for each tags defined during the container construction
-  - echo \
-      'enterpriseflowsrepository/dashboard:latest' \
-      "enterpriseflowsrepository/dashboard:$DOCKER_TAG_SHORT" \
-      "enterpriseflowsrepository/dashboard:$DOCKER_TAG" \
+  - echo
+      'enterpriseflowsrepository/dashboard:latest'
+      "enterpriseflowsrepository/dashboard:$DOCKER_TAG_SHORT"
+      "enterpriseflowsrepository/dashboard:$DOCKER_TAG"
         | xargs -n 1 docker push
 
 notifications:

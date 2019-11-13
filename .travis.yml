@@ -1,34 +1,74 @@
+# Here we will build Node.js only, so keep it simple
 language: node_js
 
+# Need this platform because of SonarQube
 dist: trusty
 
 cache:
+  # Cache Node.js's "./node_modules" folder
   npm: true
+  # Cache SonarQube's folder
   directories:
   - "$HOME/.sonar/cache"
 
+env:
+  # Short container tag. Used to select the latest build from a version.
+  # Exemple: 1.7.2
+  - DOCKER_TAG_SHORT=$TRAVIS_TAG
+  # Long container tag. Used to select an unique build version. Allow to quickly know the build date plus the referenced git commit.
+  # Exemple: 1.7.2-20191113211021-921103d
+  - DOCKER_TAG="$TRAVIS_TAG-$(date +'%Y%m%d%H%M%S')-$TRAVIS_BUILD_ID"
+
 services:
-- xvfb
+  # Display service needed for Chromium and the React.js test suite
+  - xvfb
+  # We will create containers here!
+  - docker
 
 addons:
+  # Chromium is used to perform integration tests with React.js
   chrome: stable
+  # Post build tests, quality and CVE detection by SonarQube
   sonarcloud:
     organization: enterpriseflowsrepository
     token:
       secure: elDsLWuzhpsyWm2IJs2fmg4OU8+HdRS7dDoX1PtBTwk/W1RV/u8l8Jw9hZMlLZqQ9/45JxJZjKSdGLyOx6L45rh+E5YsgfBnqGHeODXcDcIQZzkzYWo9mP8ehmDw7VI7A6T7GptE9JlNUJkb+r/CxVbD+I3CHkLbruBePVA1xlBtVWNA+I9vY2Z2bfrHbyOs52Hn6A87npcDBOkIFGiTek07jxfcOMWsyyRaaz/w6dPr1MuT/2KqXUhal6KrsykK0knryVR5q1hmP/fT6knBINAG6hhWej24pa7V9u7uHDCt19Pmf3amG+HJOfPnLcIIK5MXu6hYV0QmIvSZQacfQMw8GPpAVOoBqALtdf9/adEAK6FTk1JlB0FTxuESgDoNS+fLTrHBOxJ3RjrJzfIzaA/03YCcuerTRcAkTvRVB+MRhy/xmFfaLbExr512ZfwKJmsIEFzOUEfhYyCO7J9QadpzIL7AmquLiRKsowgY26DrjR3YKoWgZa0uOb0vrydhGRt6BThMcWTxzPe73iLSjcXYxpD3l6o6/ShnZkfWjeIMHpeJMp/SsG9Hw/4gqp12vFIfLXkC/gDaVXaBkGFDO/CUW2DgSi9ws9qOmp6+IgdKxYIu3moQKkf1ub/PBpH+0BC41o+KGTduT55cmT1DnNRSySOgfeYctRqIYekBMn0=
 
 before_install:
-- export CHROME_BIN=chromium-browser
-- export DISPLAY=:99.0
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
 
 script:
-- npm test -- --maxWorkers=4
-- npm run build
+  # Launch test jobs
+  - npm test -- --maxWorkers=4
+  # Hardcode the build version to the app itself
+  - >
+    echo "VERSION_SHORT=${DOCKER_TAG_SHORT}" > .env
+    echo "VERSION=${DOCKER_TAG}" > .env
+  # Build the Node.js binaries
+  - npm run build
 
 after_success:
-- npm run coveralls
-- sonar-scanner -Dsonar.verbose=true -X
+  # Push the coverage report to Coveralls cloud platform
+  - npm run coveralls
+  # Launch SonarQube implementation then send the report to SonarCloud cloud platform
+  - sonar-scanner -Dsonar.verbose=true -X
+  # Build the container, plus its tags
+  - docker build \
+      -t enterpriseflowsrepository/dashboard:latest \
+      -t enterpriseflowsrepository/dashboard:$DOCKER_TAG_SHORT \
+      -t enterpriseflowsrepository/dashboard:$DOCKER_TAG \
+      .
+  # Login to the container repository "hub.docker.com"
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin hub.docker.com
+  # Push the image built inside the CI to the container repository, for each tags defined during the container construction
+  - echo \
+      'enterpriseflowsrepository/dashboard:latest' \
+      "enterpriseflowsrepository/dashboard:$DOCKER_TAG_SHORT" \
+      "enterpriseflowsrepository/dashboard:$DOCKER_TAG" \
+        | xargs -n 1 docker push
 
 notifications:
+  # Only send a mail if this build fails
   email:
     on_failure: change

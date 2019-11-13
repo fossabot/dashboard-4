@@ -12,12 +12,13 @@ cache:
   - "$HOME/.sonar/cache"
 
 env:
-  # Short container tag. Used to select the latest build from a version.
-  # Exemple: 1.7.2
-  - DOCKER_TAG_SHORT=$TRAVIS_TAG
-  # Long container tag. Used to select an unique build version. Allow to quickly know the build date plus the referenced git commit.
-  # Exemple: 1.7.2-20191113211021-921103d
-  - DOCKER_TAG="$TRAVIS_TAG-$(date +'%Y%m%d%H%M%S')-$TRAVIS_BUILD_ID"
+  global:
+    # Short container tag. Used to select the latest build from a version.
+    # Example: 1.7.2
+    - DOCKER_TAG_SHORT=$TRAVIS_TAG
+    # Long container tag. Used to select an unique build version. Allow to quickly know the build date plus the referenced git commit.
+    # Example: 1.7.2-20191113211021-921103d
+    - DOCKER_TAG="$TRAVIS_TAG-$(date +'%Y%m%d%H%M%S')-$TRAVIS_BUILD_ID"
 
 services:
   # Display service needed for Chromium and the React.js test suite

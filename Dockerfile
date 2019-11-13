@@ -1,5 +1,5 @@
 # Use a base image with Alpine Linux and Node v10.x.x
-FROM node:10-alpine
+FROM node:13-alpine
 
 # Create app directory
 WORKDIR /usr/src/app

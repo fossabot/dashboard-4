@@ -1,12 +1,13 @@
 # Don't check auto-generated stuff into git
+# Here we choose to keep the "build" folder because of the production server script use these pre-compiled binaries to serve the content
 stats.json
 coverage/
-build/
+# build/
 node_modules/
 *.rbgen
 
 # ENV file, specific to the developer environnement
-# Here we choose to keep this file because we populate it with continuous integration in order to give the application it's build number.
+# Here we choose to keep this file ".env" because we populate it with continuous integration in order to give the application it's build number.
 # .env
 
 # Cruft

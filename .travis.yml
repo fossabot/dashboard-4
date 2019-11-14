@@ -42,10 +42,8 @@ before_install:
 script:
   # Launch test jobs
   - npm test -- --maxWorkers=4
-  # Hardcode the build version to the app itself
-  - >
-    echo "VERSION_SHORT=${DOCKER_TAG_SHORT}" > .env
-    echo "VERSION=${DOCKER_TAG}" > .env
+  # Hardcode the build versions to the app
+  - printf "VERSION_SHORT=${DOCKER_TAG_SHORT}\nVERSION=${DOCKER_TAG}" > .env
   # Build the Node.js binaries
   - npm run build
 

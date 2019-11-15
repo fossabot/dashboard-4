@@ -37,18 +37,28 @@ import { translationMessages } from './i18n';
 const robotoObserver = new FontFaceObserver('Roboto', {});
 
 // When Roboto is loaded, add a font-family using Roboto to the body
-robotoObserver.load().then(() => {
-  document.body.classList.add('fontsLoaded');
-});
+robotoObserver
+  .load()
+  .then(() => {
+    document.body.classList.add('fontsLoaded');
+  })
+  .catch(() => {
+    throw new Error('Roboto font failed to load.');
+  });
 
 // Observe loading of Material Icons (to remove Material Icons, remove the <link> tag in
 // the index.html file and this observer)
 const materialIconsObserver = new FontFaceObserver('Material Icons', {});
 
 // When Material Icons is loaded, add a font-family using Material Icons to the body
-materialIconsObserver.load().then(() => {
-  document.body.classList.add('iconsLoaded');
-});
+materialIconsObserver
+  .load()
+  .then(() => {
+    document.body.classList.add('iconsLoaded');
+  })
+  .catch(() => {
+    throw new Error('Material Icons font failed to load.');
+  });
 
 // Create redux store with history
 const initialState = {};

@@ -14,8 +14,8 @@ const ngrok =
 const { resolve } = require('path');
 const app = express();
 
-// If you need a backend, e.g. an API, add your custom backend-specific middleware here
-// app.use('/api', myApi);
+// disable X-Powered-By header, because it exposes information about the used frameworks to potential attackers
+app.disable('etag');
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {

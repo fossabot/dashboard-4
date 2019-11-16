@@ -15,10 +15,10 @@ env:
   global:
     # Short container tag. Used to select the latest build from a version.
     # Example: 1.7.2
-    - DOCKER_TAG_SHORT=${TRAVIS_TAG:-0.0.0}
+    - DOCKER_TAG_SHORT=$(node -p "require('./package.json').version")
     # Long container tag. Used to select an unique build version. Allow to quickly know the build date plus the referenced git commit.
     # Example: 1.7.2-20191113211021-921103d
-    - DOCKER_TAG="${TRAVIS_TAG:-0.0.0}-$(date +'%Y%m%d%H%M%S')-$(git rev-parse --short HEAD)"
+    - DOCKER_TAG="$DOCKER_TAG_SHORT-$(date +'%Y%m%d%H%M%S')-$(git rev-parse --short HEAD)"
 
 services:
   # Display service needed for Chromium and the React.js test suite

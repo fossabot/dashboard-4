@@ -1,15 +1,12 @@
 # Here we will build Node.js only, so keep it simple
 language: node_js
 
-# Need this platform because of SonarQube
-dist: trusty
-
 cache:
   # Cache Node.js's "./node_modules" folder
   npm: true
-  # Cache SonarQube's folder
   directories:
-  - "$HOME/.sonar/cache"
+    # Cache SonarQube's folder
+    - "$HOME/.sonar/cache"
 
 env:
   global:
@@ -39,10 +36,10 @@ addons:
     organization: enterpriseflowsrepository
     token:
       secure: elDsLWuzhpsyWm2IJs2fmg4OU8+HdRS7dDoX1PtBTwk/W1RV/u8l8Jw9hZMlLZqQ9/45JxJZjKSdGLyOx6L45rh+E5YsgfBnqGHeODXcDcIQZzkzYWo9mP8ehmDw7VI7A6T7GptE9JlNUJkb+r/CxVbD+I3CHkLbruBePVA1xlBtVWNA+I9vY2Z2bfrHbyOs52Hn6A87npcDBOkIFGiTek07jxfcOMWsyyRaaz/w6dPr1MuT/2KqXUhal6KrsykK0knryVR5q1hmP/fT6knBINAG6hhWej24pa7V9u7uHDCt19Pmf3amG+HJOfPnLcIIK5MXu6hYV0QmIvSZQacfQMw8GPpAVOoBqALtdf9/adEAK6FTk1JlB0FTxuESgDoNS+fLTrHBOxJ3RjrJzfIzaA/03YCcuerTRcAkTvRVB+MRhy/xmFfaLbExr512ZfwKJmsIEFzOUEfhYyCO7J9QadpzIL7AmquLiRKsowgY26DrjR3YKoWgZa0uOb0vrydhGRt6BThMcWTxzPe73iLSjcXYxpD3l6o6/ShnZkfWjeIMHpeJMp/SsG9Hw/4gqp12vFIfLXkC/gDaVXaBkGFDO/CUW2DgSi9ws9qOmp6+IgdKxYIu3moQKkf1ub/PBpH+0BC41o+KGTduT55cmT1DnNRSySOgfeYctRqIYekBMn0=
-  # Force usage of the latest Docker version
-  # See: https://docs.travis-ci.com/user/docker/#installing-a-newer-docker-version
   apt:
     packages:
+      # Force usage of the latest Docker version
+      # See: https://docs.travis-ci.com/user/docker/#installing-a-newer-docker-version
       - docker-ce
 
 before_install:
@@ -58,12 +55,12 @@ script:
   - npm run build
   # Build the container
   - docker build -t $CONTAINER_NAME .
+  # Launch SonarQube implementation then send the report to SonarCloud cloud platform
+  - sonar-scanner
 
 after_success:
   # Push the coverage report to Coveralls cloud platform
   - npm run coveralls
-  # Launch SonarQube implementation then send the report to SonarCloud cloud platform
-  - sonar-scanner
 
 notifications:
   # Notify each build on Slack
@@ -71,10 +68,10 @@ notifications:
 
 deploy:
   - provider: script
-    script: bash docker_push
+    script: bash docker_push.sh
     on:
       branch: dev
   - provider: script
-    script: bash docker_push stable
+    script: bash docker_push.sh stable
     on:
       branch: master

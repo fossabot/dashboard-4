@@ -59,12 +59,12 @@ script:
 - npm run build
 # Build the container
 - docker build -t $CONTAINER_NAME .
-# Launch SonarQube implementation then send the report to SonarCloud cloud platform
-- sonar-scanner
 
 after_success:
 # Push the coverage report to Coveralls cloud platform
 - npm run coveralls
+# Launch SonarQube implementation then send the report to SonarCloud cloud platform
+- sonar-scanner
 
 notifications:
   # Notify each build on Slack

@@ -5,28 +5,32 @@ cache:
   # Cache Node.js's "./node_modules" folder
   npm: true
   directories:
-    # Cache SonarQube's folder
-    - "$HOME/.sonar/cache"
+  # Cache SonarQube's folder
+  - "$HOME/.sonar/cache"
 
 env:
   global:
-    # Standard container name (schema: project/application). Used to build the image and push it to the repo
-    - CONTAINER_NAME="enterpriseflowsrepository/dashboard"
-    # Short container tag. Contains major, monor & patch values
-    # Example: 1.7.2
-    - CONTAINER_TAG_SHORT=$(node -p "require('./package.json').version")
-    # Short container tag. Contains major & monor values
-    # Example: 1.7
-    - CONTAINER_TAG_SHORTER=$(node -p "require('./package.json').version.split('.').splice(0, 2).join('.')")
-    # Long container tag. Used to select an unique build version. Allow to quickly know the build date plus the referenced git commit
-    # Example: 1.7.2-20191113211021-921103d
-    - CONTAINER_TAG="$CONTAINER_TAG_SHORT-$(date +'%Y%m%d%H%M%S')-$(git rev-parse --short HEAD)"
+  # Standard container name (schema: project/application). Used to build the image and push it to the repo
+  - CONTAINER_NAME="enterpriseflowsrepository/dashboard"
+  # Short container tag. Contains major, monor & patch values
+  # Example: 1.7.2
+  - CONTAINER_TAG_SHORT=$(node -p "require('./package.json').version")
+  # Short container tag. Contains major & monor values
+  # Example: 1.7
+  - CONTAINER_TAG_SHORTER=$(node -p "require('./package.json').version.split('.').splice(0, 2).join('.')")
+  # Long container tag. Used to select an unique build version. Allow to quickly know the build date plus the referenced git commit
+  # Example: 1.7.2-20191113211021-921103d
+  - CONTAINER_TAG="$CONTAINER_TAG_SHORT-$(date +'%Y%m%d%H%M%S')-$(git rev-parse --short HEAD)"
+  # CONTAINER_USERNAME
+  - secure: WSHVRbseKodCI7HFXAfVT3QzdlFhEoVorSNeNVrE49NxfwAKjLLLr2qteoFfWHMWQJ3Ike/zpfFOuXa7FR9X2TTwyZsOureD2qZPush2CUsrc5TLbxgtPqlIgKMCWBsXYdJXRzcK34lYi9Ac8wvDKZGLUlsHqVoe7Stg+toKzN+UTnw44lvSQhC0H+0Ri6oC4Fj0C7s2sQKhGtPay0Zm6onBTG1WrRRDzFyyuyDhdBUXSBpN3FtI1kUNgjj9dzQLCG7IIGVkA+1srmkPHx5+KpZ/QnIUCP71j98KUUmUryo+YB8b44vRLsx6uMhS2gf6ZbBaWe2CXU3bQyDLQ4tE3xzDUf91n7J+UC8VsWXrjNqwfkmqgh0Gnr+jub9CFGGD0FdYRhviclkvEtT4rvgeDB9tdM8IPS++mWx9D+5D8AUj9ljIIKhCH4ZlyEEBe9ltg+ab4mhlCmKK+g3mvXBy5GvOySGLjdYDjzqLxHkPK4gkmvEC7fxFQLK6v8jOf6eyEw7Jb3Po3aUaL5ah4l5vi2IKaK6dI3+zS47S1Nave8ezzCacb6NW9H82WWWLAKxTHg1ZNl8+xTTEUEXzbG5lkePgd88r2NFIvEEJ0nAoiVZGk7mz0h5vw8qCUJahTsloyIcQ5/qZBrJ0KfbY1cZ2E2+Cr3TIhJJy5v5wRZTdlNo=
+  # CONTAINER_PASSWORD
+  - secure: lsCTX6t71dxoKU+0gEn46IFHtdVBXnt/6WFcfGI/tu4BUJO44XReXFxPrNWIo45dCIBRM24t/dSDosh24uQYaJFd/TooJtLegiU9nQp2E9PM4Jtgai7+2VzwTuSACShC001G3PwbJu4ZBf02fMHmxtWASitl3HV4VjVrENIWk5SBUXlhtI4qWaQpG0gYZowbq2c7FL0o5VmTN8xmGg8961x5+ABo+QYjxSlsiZZGRR1stQW5nG34XaApezv8BUpCtHfrFarMr5BZNL6xXJpW0uWDTaylMC5hFDmrMslsRC0aoiZe943aYPGA/uC6mKV4ZjEJ0Ojq0z2Jp9CO87aaPu6PhwH3aAAFTuvTEvTniJjARjl9s948SrzLRBNB8/grIQhAV68mzJHC0eRcdUdesGmYSziVRnTF1hwugGRl87zWIdSsnLDJZoWSfrOPbylSYtVHSDz3yc4e61oT23fq2dyWC52wSEnXLkT7JbC0/elgXZbCV8weqyFhCHo1aPXIB+xxsm1qx1IlH4ToHRegCljB2XSE4vXR+RbtnwsyoTNrO0Cvq9j69Ty4GoJ7MrQ+8KUP9dDrVlimtHaa5cVbad2kVmTPuLZMiBUqgux6VsZ/uEPMkA+IfRV5heY4YTctsCGmdFBGnhrfCpgqZnGcWzheHrRSs1EmYZnkTJZsjGk=
 
 services:
-  # Display service needed for Chromium and the React.js test suite
-  - xvfb
-  # We will create containers here!
-  - docker
+# Display service needed for Chromium and the React.js test suite
+- xvfb
+# We will create containers here!
+- docker
 
 addons:
   # Chromium is used to perform integration tests with React.js
@@ -38,40 +42,40 @@ addons:
       secure: elDsLWuzhpsyWm2IJs2fmg4OU8+HdRS7dDoX1PtBTwk/W1RV/u8l8Jw9hZMlLZqQ9/45JxJZjKSdGLyOx6L45rh+E5YsgfBnqGHeODXcDcIQZzkzYWo9mP8ehmDw7VI7A6T7GptE9JlNUJkb+r/CxVbD+I3CHkLbruBePVA1xlBtVWNA+I9vY2Z2bfrHbyOs52Hn6A87npcDBOkIFGiTek07jxfcOMWsyyRaaz/w6dPr1MuT/2KqXUhal6KrsykK0knryVR5q1hmP/fT6knBINAG6hhWej24pa7V9u7uHDCt19Pmf3amG+HJOfPnLcIIK5MXu6hYV0QmIvSZQacfQMw8GPpAVOoBqALtdf9/adEAK6FTk1JlB0FTxuESgDoNS+fLTrHBOxJ3RjrJzfIzaA/03YCcuerTRcAkTvRVB+MRhy/xmFfaLbExr512ZfwKJmsIEFzOUEfhYyCO7J9QadpzIL7AmquLiRKsowgY26DrjR3YKoWgZa0uOb0vrydhGRt6BThMcWTxzPe73iLSjcXYxpD3l6o6/ShnZkfWjeIMHpeJMp/SsG9Hw/4gqp12vFIfLXkC/gDaVXaBkGFDO/CUW2DgSi9ws9qOmp6+IgdKxYIu3moQKkf1ub/PBpH+0BC41o+KGTduT55cmT1DnNRSySOgfeYctRqIYekBMn0=
   apt:
     packages:
-      # Force usage of the latest Docker version
-      # See: https://docs.travis-ci.com/user/docker/#installing-a-newer-docker-version
-      - docker-ce
+    # Force usage of the latest Docker version
+    # See: https://docs.travis-ci.com/user/docker/#installing-a-newer-docker-version
+    - docker-ce
 
 before_install:
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
+- export CHROME_BIN=chromium-browser
+- export DISPLAY=:99.0
 
 script:
-  # Launch test jobs
-  - npm test -- --maxWorkers=4
-  # Hardcode the build versions to the app
-  - printf "VERSION_SHORT=${CONTAINER_TAG_SHORT}\nVERSION=${CONTAINER_TAG}" > .env
-  # Build the Node.js binaries
-  - npm run build
-  # Build the container
-  - docker build -t $CONTAINER_NAME .
-  # Launch SonarQube implementation then send the report to SonarCloud cloud platform
-  - sonar-scanner
+# Launch test jobs
+- npm test -- --maxWorkers=4
+# Hardcode the build versions to the app
+- printf "VERSION_SHORT=${CONTAINER_TAG_SHORT}\nVERSION=${CONTAINER_TAG}" > .env
+# Build the Node.js binaries
+- npm run build
+# Build the container
+- docker build -t $CONTAINER_NAME .
+# Launch SonarQube implementation then send the report to SonarCloud cloud platform
+- sonar-scanner
 
 after_success:
-  # Push the coverage report to Coveralls cloud platform
-  - npm run coveralls
+# Push the coverage report to Coveralls cloud platform
+- npm run coveralls
 
 notifications:
   # Notify each build on Slack
   slack: enterpriseflo-sdf9244:I2PkD1iUs0lMR3Zon4ciy5zS
 
 deploy:
-  - provider: script
-    script: bash docker_push.sh
-    on:
-      branch: dev
-  - provider: script
-    script: bash docker_push.sh stable
-    on:
-      branch: master
+- provider: script
+  script: bash docker_push.sh
+  on:
+    branch: dev
+- provider: script
+  script: bash docker_push.sh stable
+  on:
+    branch: master

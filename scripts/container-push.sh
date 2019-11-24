@@ -47,11 +47,6 @@ while getopts 'r:u:p:a:i:v:w:' OPTION; do
         # string
         w)
             IMAGE_TAG_FULL=${OPTARG};;
-        \?)
-            echo "🤷‍♀️ Unknown option: -$OPTARG" >&2
-            usage
-            exit 1
-            ;;
         :)
             echo "👀 Missing option argument for -$OPTARG" >&2
             usage

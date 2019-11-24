@@ -15,16 +15,13 @@ env:
   # Short container tag. Contains major, monor & patch values
   # Example: 1.7.2
   - CONTAINER_TAG_SHORT=$(node -p "require('./package.json').version")
-  # Short container tag. Contains major & monor values
-  # Example: 1.7
-  - CONTAINER_TAG_SHORTER=$(node -p "require('./package.json').version.split('.').splice(0, 2).join('.')")
   # Long container tag. Used to select an unique build version. Allow to quickly know the build date plus the referenced git commit
   # Example: 1.7.2-20191113211021-921103d
-  - CONTAINER_TAG="$CONTAINER_TAG_SHORT-$(date +'%Y%m%d%H%M%S')-$(git rev-parse --short HEAD)"
-  # CONTAINER_USERNAME
-  - secure: WSHVRbseKodCI7HFXAfVT3QzdlFhEoVorSNeNVrE49NxfwAKjLLLr2qteoFfWHMWQJ3Ike/zpfFOuXa7FR9X2TTwyZsOureD2qZPush2CUsrc5TLbxgtPqlIgKMCWBsXYdJXRzcK34lYi9Ac8wvDKZGLUlsHqVoe7Stg+toKzN+UTnw44lvSQhC0H+0Ri6oC4Fj0C7s2sQKhGtPay0Zm6onBTG1WrRRDzFyyuyDhdBUXSBpN3FtI1kUNgjj9dzQLCG7IIGVkA+1srmkPHx5+KpZ/QnIUCP71j98KUUmUryo+YB8b44vRLsx6uMhS2gf6ZbBaWe2CXU3bQyDLQ4tE3xzDUf91n7J+UC8VsWXrjNqwfkmqgh0Gnr+jub9CFGGD0FdYRhviclkvEtT4rvgeDB9tdM8IPS++mWx9D+5D8AUj9ljIIKhCH4ZlyEEBe9ltg+ab4mhlCmKK+g3mvXBy5GvOySGLjdYDjzqLxHkPK4gkmvEC7fxFQLK6v8jOf6eyEw7Jb3Po3aUaL5ah4l5vi2IKaK6dI3+zS47S1Nave8ezzCacb6NW9H82WWWLAKxTHg1ZNl8+xTTEUEXzbG5lkePgd88r2NFIvEEJ0nAoiVZGk7mz0h5vw8qCUJahTsloyIcQ5/qZBrJ0KfbY1cZ2E2+Cr3TIhJJy5v5wRZTdlNo=
-  # CONTAINER_PASSWORD
-  - secure: lsCTX6t71dxoKU+0gEn46IFHtdVBXnt/6WFcfGI/tu4BUJO44XReXFxPrNWIo45dCIBRM24t/dSDosh24uQYaJFd/TooJtLegiU9nQp2E9PM4Jtgai7+2VzwTuSACShC001G3PwbJu4ZBf02fMHmxtWASitl3HV4VjVrENIWk5SBUXlhtI4qWaQpG0gYZowbq2c7FL0o5VmTN8xmGg8961x5+ABo+QYjxSlsiZZGRR1stQW5nG34XaApezv8BUpCtHfrFarMr5BZNL6xXJpW0uWDTaylMC5hFDmrMslsRC0aoiZe943aYPGA/uC6mKV4ZjEJ0Ojq0z2Jp9CO87aaPu6PhwH3aAAFTuvTEvTniJjARjl9s948SrzLRBNB8/grIQhAV68mzJHC0eRcdUdesGmYSziVRnTF1hwugGRl87zWIdSsnLDJZoWSfrOPbylSYtVHSDz3yc4e61oT23fq2dyWC52wSEnXLkT7JbC0/elgXZbCV8weqyFhCHo1aPXIB+xxsm1qx1IlH4ToHRegCljB2XSE4vXR+RbtnwsyoTNrO0Cvq9j69Ty4GoJ7MrQ+8KUP9dDrVlimtHaa5cVbad2kVmTPuLZMiBUqgux6VsZ/uEPMkA+IfRV5heY4YTctsCGmdFBGnhrfCpgqZnGcWzheHrRSs1EmYZnkTJZsjGk=
+  - CONTAINER_TAG_FULL="$CONTAINER_TAG_SHORT-$(date +'%Y%m%d%H%M%S')-$(git rev-parse --short HEAD)"
+  # CONTAINER_REPO_HUB_DOCKER_COM_USERNAME
+  - secure: v7Sdq60HAPC+Z521/7oA9HTKT5CIDC0UWFvXBDi3vAoEvodwDhKEryWPKoFsQiNRJs4EUXtllPjHQVnlGNEFW0sG62HM/k4AxeJVDae8p7b1Ti3/XpzF2/4YUw+KBhW/Q0yAPJOZ29G+h9fxeNwVWa+SN6Vun/h3fwqjn502MwV4+YBAi9mLVJ0WLfJt19S9dr5gGdCl/VRstCk8owHbBHMSlO2vlgHfqFBx5iRXc0k0nLVDTNEUU/mFHOm8iXEQn6CgHXUb1gdm5AM1CYVVTJvF9+nndYNvXkS9ZBiIwvFV5PnflzQgqxDFJz9ZbLFe1RP8n3ZyOl5MAd9kv+iSG3+zjz4i2bT+VUL9awKrhQ2CM5UINLmYslW1lCv4fDGr6IIPpVoD+z8u/FX0ppQunoS3CypTSUkvyXoRQwoXgy5ortOaw9OfJG/3uEuYs3MXPyS4xCT6QS4IjG77YBmy7Hi8p+t9f9Tg4SIXprHJ5clem6j/wbt5EJaH8UO7cqL4YQtJNjiFSxdsYokHdnRKAKtfwiegovbbkgRtGhUiEYQubaN0gRO0O+xNZP/KYpCaU8WZ7tn2J2Z9AxN5l5JG9qo2AZ+2HI5wzy/Gfp3AdIt+koWmdO0dJEKPMw+pkufrr5t+hxhAwXhz0gkUXIAYLUJxxFFVExX+Kmef3jV9dVM=
+  # CONTAINER_REPO_HUB_DOCKER_COM_PASSWORD
+  - secure: iype3yaLuZRjWfwibZAZ2Kpk8p6JepSZGzwL4WNvwS7xDO5eDWwWTzSNKpT++3xTXAHMmFG+SWd1q7Gj0CoOgceDf2B7ssczA6Z6hXFLoZ9e86PI4unmUCguBorIX9jShxxLP6CrmcXaVYOunHdunhoidLdheHS/uvm76xN8q8XzkKG3d8ZHKM/JkQCyyVJfJ3Masp/eIUrSx8Lm+VkpcTMFFcFBUc2VMod5l0m0+GSrLSmh0ByAMWpzGeEhM0bK/JGjx7wOMcUaXfMnHIdLWy6UtgI0BoRdqpWsBAhdmaNkjARQEeCkiRmYlNo362bJ8LWqcJZqUSdEGP1Qsv2d+HDGP9y3palxxRVya/GcT7WcYNeOoubJmp3jE271QpoCzs3g7bRl3O63cezqnLaNGqyRxC19o/gwnGiNBX2FDeiv2TMg13K7RAWzIuYYFtDcaj0zGZS5un2uvY6niWilUZMbrbDO1Nw+aoOoKMWZiIe612DOgBbFxXMaZGo+vv8oxembBRcotNsRn3D2l2xC6zqyMZElSg7UCeROShAGAyJxEuPZ9XqFX3mAAj64Jso0WfmbBY1vTGFVMOCiR7IT3yqIQ1toemCvQexJ50fwhTa/p15h+r9wSN/kkj8zSnSZ56ZDLQ3cn/QvIHPUuYRtXqaqeb/4zRkJbln7XNFmpII=
 
 services:
 # Display service needed for Chromium and the React.js test suite
@@ -54,7 +51,7 @@ script:
 # Launch test jobs
 - npm test -- --maxWorkers=4
 # Hardcode the build versions to the app
-- printf "VERSION_SHORT=${CONTAINER_TAG_SHORT}\nVERSION=${CONTAINER_TAG}" > .env
+- printf "VERSION_SHORT=${CONTAINER_TAG_SHORT}\nVERSION=${CONTAINER_TAG_FULL}" > .env
 # Build the Node.js binaries
 - npm run build
 # Build the container
@@ -68,14 +65,30 @@ after_success:
 
 notifications:
   # Notify each build on Slack
-  slack: enterpriseflo-sdf9244:I2PkD1iUs0lMR3Zon4ciy5zS
+  slack: enterpriseflowsrepo:I2PkD1iUs0lMR3Zon4ciy5zS
 
 deploy:
+# Push builds with default tags to "docker.io"
 - provider: script
-  script: bash docker_push.sh
+  script: bash scripts/container-push.sh
+    -r docker.io
+    -u $CONTAINER_REPO_HUB_DOCKER_COM_USERNAME
+    -p $CONTAINER_REPO_HUB_DOCKER_COM_PASSWORD
+    -i $CONTAINER_NAME
+    -v $CONTAINER_TAG_SHORT
+    -w $CONTAINER_TAG_FULL
+    -a default
   on:
-    branch: dev
+    all_branches: true
+# Push builds with stable tags to "docker.io"
 - provider: script
-  script: bash docker_push.sh stable
+  script: bash scripts/container-push.sh
+    -r docker.io
+    -u $CONTAINER_REPO_HUB_DOCKER_COM_USERNAME
+    -p $CONTAINER_REPO_HUB_DOCKER_COM_PASSWORD
+    -i $CONTAINER_NAME
+    -v $CONTAINER_TAG_SHORT
+    -w $CONTAINER_TAG_FULL
+    -a stable
   on:
     branch: master

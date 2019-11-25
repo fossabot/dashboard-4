@@ -72,11 +72,11 @@ deploy:
 - provider: script
   script: bash scripts/container-push.sh
     -r docker.io
-    -u $CONTAINER_REPO_HUB_DOCKER_COM_USERNAME
-    -p $CONTAINER_REPO_HUB_DOCKER_COM_PASSWORD
-    -i $CONTAINER_NAME
-    -v $CONTAINER_TAG_SHORT
-    -w $CONTAINER_TAG_FULL
+    -u "$CONTAINER_REPO_HUB_DOCKER_COM_USERNAME"
+    -p "$CONTAINER_REPO_HUB_DOCKER_COM_PASSWORD"
+    -i "$CONTAINER_NAME"
+    -v "$CONTAINER_TAG_SHORT"
+    -w "$CONTAINER_TAG_FULL"
     -a default
   on:
     all_branches: true
@@ -84,11 +84,11 @@ deploy:
 - provider: script
   script: bash scripts/container-push.sh
     -r docker.io
-    -u $CONTAINER_REPO_HUB_DOCKER_COM_USERNAME
-    -p $CONTAINER_REPO_HUB_DOCKER_COM_PASSWORD
-    -i $CONTAINER_NAME
-    -v $CONTAINER_TAG_SHORT
-    -w $CONTAINER_TAG_FULL
+    -u "$CONTAINER_REPO_HUB_DOCKER_COM_USERNAME"
+    -p "$CONTAINER_REPO_HUB_DOCKER_COM_PASSWORD"
+    -i "$CONTAINER_NAME"
+    -v "$CONTAINER_TAG_SHORT"
+    -w "$CONTAINER_TAG_FULL"
     -a stable
   on:
     branch: master

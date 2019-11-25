@@ -41,7 +41,6 @@
     "test:clean": "rimraf ./coverage",
     "test": "cross-env NODE_ENV=test jest --coverage",
     "test:watch": "cross-env NODE_ENV=test jest --watchAll",
-    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "prettify": "prettier --write"
   },
   "browserslist": [
@@ -123,7 +122,6 @@
     "circular-dependency-plugin": "5.0.2",
     "compare-versions": "3.4.0",
     "compression-webpack-plugin": "2.0.0",
-    "coveralls": "3.0.3",
     "css-loader": "3.2.0",
     "eslint": "5.16.0",
     "eslint-config-airbnb": "17.1.0",

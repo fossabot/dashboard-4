@@ -58,8 +58,6 @@ script:
 - docker build -t "$CONTAINER_NAME" .
 
 after_success:
-# Push the coverage report to Coveralls cloud platform
-- npm run coveralls
 # Launch SonarQube implementation then send the report to SonarCloud cloud platform
 - sonar-scanner
 

@@ -52,6 +52,11 @@ while getopts 'r:u:p:a:i:v:w:' OPTION; do
             usage
             exit 1
             ;;
+        *)
+            echo "⁉ Unimplemented option: -$OPTARG" >&2
+            usage
+            exit 1
+            ;;
     esac
 done
 

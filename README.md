@@ -1,8 +1,9 @@
 # Dashboard
 
 [![Build Status](https://travis-ci.org/EnterpriseFlowsRepository/dashboard.svg?branch=dev)](https://travis-ci.org/EnterpriseFlowsRepository/dashboard)
-[![Coverage Status](https://img.shields.io/sonar/coverage/EnterpriseFlowsRepository_dashboard?server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/dashboard?id=EnterpriseFlowsRepository_dashboard)
-[![SonarCloud Status](https://img.shields.io/sonar/quality_gate/EnterpriseFlowsRepository_dashboard?server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/dashboard?id=EnterpriseFlowsRepository_dashboard)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=EnterpriseFlowsRepository_dashboard&metric=alert_status)](https://sonarcloud.io/dashboard?id=EnterpriseFlowsRepository_dashboard)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=EnterpriseFlowsRepository_dashboard&metric=coverage)](https://sonarcloud.io/dashboard?id=EnterpriseFlowsRepository_dashboard)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=EnterpriseFlowsRepository_dashboard&metric=security_rating)](https://sonarcloud.io/dashboard?id=EnterpriseFlowsRepository_dashboard)
 ![Licence](https://img.shields.io/github/license/EnterpriseFlowsRepository/dashboard)
 ![Last commit](https://img.shields.io/github/last-commit/EnterpriseFlowsRepository/dashboard)
 

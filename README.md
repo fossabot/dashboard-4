@@ -48,13 +48,12 @@ Enterprise Flows Repisitory is straightforward: [a container image is published 
 
 ## Built With
 
-* [React Boilerplate](https://github.com/react-boilerplate/react-boilerplate) - React.js boilerplate
-* [Material UI](https://material-ui.com) - React components following Google Material Design guidelines
-* [Travis CI](https://travis-ci.org) - Continuous integration platform
-* [Coveralls](https://coveralls.io) - Coverage tests platform
-* [Dependabot](https://dependabot.com) - Automated dependency updates
-* [SonarCloud](https://sonarcloud.io) - Quality tests platform
-* [README-template.md](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) - An awesome README template from @PurpleBooth
+- [React Boilerplate](https://github.com/react-boilerplate/react-boilerplate) - React.js boilerplate
+- [Material UI](https://material-ui.com) - React components following Google Material Design guidelines
+- [Travis CI](https://travis-ci.org) - Continuous integration platform
+- [Dependabot](https://dependabot.com) - Automated dependency updates
+- [SonarCloud](https://sonarcloud.io) - Quality tests platform
+- [README-template.md](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) - An awesome README template from @PurpleBooth
 
 ## Contributing
 
@@ -66,8 +65,8 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Emmanuel Lesné** - *Project creator & maintainer* - [Emmanuel35](https://github.com/Emmanuel35)
-* **Clément Lesné** - *Initial work & maintainer* - [clementlesne](https://github.com/clementlesne)
+- **Emmanuel Lesné** - *Project creator & maintainer* - [Emmanuel35](https://github.com/Emmanuel35)
+- **Clément Lesné** - *Initial work & maintainer* - [clementlesne](https://github.com/clementlesne)
 
 ## License
 

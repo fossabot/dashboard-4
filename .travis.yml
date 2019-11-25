@@ -2,16 +2,16 @@
 language: node_js
 
 cache:
-  # Cache Node.js's "./node_modules" folder
+  # Cache Node.js's './node_modules' folder
   npm: true
   directories:
   # Cache SonarQube's folder
-  - "$HOME/.sonar/cache"
+  - '$HOME/.sonar/cache'
 
 env:
   global:
   # Standard container name (schema: project/application). Used to build the image and push it to the repo
-  - CONTAINER_NAME="enterpriseflowsrepository/dashboard"
+  - CONTAINER_NAME='enterpriseflowsrepository/dashboard'
   # Short container tag. Contains major, monor & patch values
   # Example: 1.7.2
   - CONTAINER_TAG_SHORT=$(node -p "require('./package.json').version")
@@ -68,12 +68,12 @@ notifications:
   slack: enterpriseflowsrepo:I2PkD1iUs0lMR3Zon4ciy5zS
 
 deploy:
-# Push builds with default tags to "docker.io"
+# Push builds with default tags to 'docker.io'
 - provider: script
   script: bash scripts/container-push.sh -r docker.io -u "$CONTAINER_REPO_HUB_DOCKER_COM_USERNAME" -p "$CONTAINER_REPO_HUB_DOCKER_COM_PASSWORD" -i "$CONTAINER_NAME" -v "$CONTAINER_TAG_SHORT" -w "$CONTAINER_TAG_FULL" -a default
   on:
     all_branches: true
-# Push builds with stable tags to "docker.io"
+# Push builds with stable tags to 'docker.io'
 - provider: script
   script: bash scripts/container-push.sh -r docker.io -u "$CONTAINER_REPO_HUB_DOCKER_COM_USERNAME" -p "$CONTAINER_REPO_HUB_DOCKER_COM_PASSWORD" -i "$CONTAINER_NAME" -v "$CONTAINER_TAG_SHORT" -w "$CONTAINER_TAG_FULL" -a stable
   on:

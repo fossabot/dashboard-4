@@ -14,7 +14,7 @@ env:
   - CONTAINER_NAME='enterpriseflowsrepository/dashboard'
   # Short container tag. Contains major, monor & patch values
   # Example: 1.7.2
-  - CONTAINER_TAG_SHORT=$(node -p "require('./package.json').version")
+  - CONTAINER_TAG_SHORT="$(node -p "require('./package.json').version")"
   # Long container tag. Used to select an unique build version. Allow to quickly know the build date plus the referenced git commit
   # Example: 1.7.2-20191113211021-921103d
   - CONTAINER_TAG_FULL="$CONTAINER_TAG_SHORT-$(date +'%Y%m%d%H%M%S')-$(git rev-parse --short HEAD)"

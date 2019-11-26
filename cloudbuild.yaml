@@ -1,0 +1,15 @@
+steps:
+
+  # Deploy K8S configuration
+  - name: "gcr.io/cloud-builders/kubectl"
+    args:
+      - apply
+      - -f
+      - deployment/k8s/
+      - --record
+    env:
+      - "CLOUDSDK_COMPUTE_ZONE=$_ZONE"
+      - "CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME"
+
+timeout: 660s
+tags: ['dashboard']

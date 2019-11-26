@@ -55,7 +55,7 @@ script:
 # Build the Node.js binaries
 - npm run build
 # Build the container
-- docker build -t "$CONTAINER_NAME" .
+- docker build --file deployment/docker/Dockerfile -t "$CONTAINER_NAME" .
 
 after_success:
 # Launch SonarQube implementation then send the report to SonarCloud cloud platform
@@ -68,11 +68,11 @@ notifications:
 deploy:
 # Push builds with default tags to 'docker.io'
 - provider: script
-  script: bash scripts/container-push.sh -r docker.io -u "$CONTAINER_REPO_HUB_DOCKER_COM_USERNAME" -p "$CONTAINER_REPO_HUB_DOCKER_COM_PASSWORD" -i "$CONTAINER_NAME" -v "$CONTAINER_TAG_SHORT" -w "$CONTAINER_TAG_FULL" -a default
+  script: bash deployment/docker/container-push.sh -r docker.io -u "$CONTAINER_REPO_HUB_DOCKER_COM_USERNAME" -p "$CONTAINER_REPO_HUB_DOCKER_COM_PASSWORD" -i "$CONTAINER_NAME" -v "$CONTAINER_TAG_SHORT" -w "$CONTAINER_TAG_FULL" -a default
   on:
     all_branches: true
 # Push builds with stable tags to 'docker.io'
 - provider: script
-  script: bash scripts/container-push.sh -r docker.io -u "$CONTAINER_REPO_HUB_DOCKER_COM_USERNAME" -p "$CONTAINER_REPO_HUB_DOCKER_COM_PASSWORD" -i "$CONTAINER_NAME" -v "$CONTAINER_TAG_SHORT" -w "$CONTAINER_TAG_FULL" -a stable
+  script: bash deployment/docker/container-push.sh -r docker.io -u "$CONTAINER_REPO_HUB_DOCKER_COM_USERNAME" -p "$CONTAINER_REPO_HUB_DOCKER_COM_PASSWORD" -i "$CONTAINER_NAME" -v "$CONTAINER_TAG_SHORT" -w "$CONTAINER_TAG_FULL" -a stable
   on:
     branch: master

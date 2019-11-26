@@ -2,6 +2,7 @@ apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
   name: dashboard
+  namespace: default
   labels:
     app: dashboard
 spec:
@@ -16,9 +17,12 @@ spec:
       labels:
         app: dashboard
     spec:
+      terminationGracePeriodSeconds: 5
+      restartPolicy: Always
       containers:
       - name: dashboard
         image: enterpriseflowsrepository/dashboard:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         resources:

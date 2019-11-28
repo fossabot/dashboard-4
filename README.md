@@ -1,8 +1,9 @@
 # Dashboard
 
 [![Build Status](https://travis-ci.org/EnterpriseFlowsRepository/dashboard.svg?branch=dev)](https://travis-ci.org/EnterpriseFlowsRepository/dashboard)
-[![Coverage Status](https://img.shields.io/coveralls/github/EnterpriseFlowsRepository/dashboard/dev)](https://coveralls.io/github/EnterpriseFlowsRepository/dashboard)
-[![SonarCloud Status](https://img.shields.io/sonar/quality_gate/EnterpriseFlowsRepository_dashboard?server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/dashboard?id=EnterpriseFlowsRepository_dashboard)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=EnterpriseFlowsRepository_dashboard&metric=alert_status)](https://sonarcloud.io/dashboard?id=EnterpriseFlowsRepository_dashboard)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=EnterpriseFlowsRepository_dashboard&metric=coverage)](https://sonarcloud.io/dashboard?id=EnterpriseFlowsRepository_dashboard)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=EnterpriseFlowsRepository_dashboard&metric=security_rating)](https://sonarcloud.io/dashboard?id=EnterpriseFlowsRepository_dashboard)
 ![Licence](https://img.shields.io/github/license/EnterpriseFlowsRepository/dashboard)
 ![Last commit](https://img.shields.io/github/last-commit/EnterpriseFlowsRepository/dashboard)
 
@@ -48,13 +49,12 @@ Enterprise Flows Repisitory is straightforward: [a container image is published 
 
 ## Built With
 
-* [React Boilerplate](https://github.com/react-boilerplate/react-boilerplate) - React.js boilerplate
-* [Material UI](https://material-ui.com) - React components following Google Material Design guidelines
-* [Travis CI](https://travis-ci.org) - Continuous integration platform
-* [Coveralls](https://coveralls.io) - Coverage tests platform
-* [Dependabot](https://dependabot.com) - Automated dependency updates
-* [SonarCloud](https://sonarcloud.io) - Quality tests platform
-* [README-template.md](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) - An awesome README template from @PurpleBooth
+- [React Boilerplate](https://github.com/react-boilerplate/react-boilerplate) - React.js boilerplate
+- [Material UI](https://material-ui.com) - React components following Google Material Design guidelines
+- [Travis CI](https://travis-ci.org) - Continuous integration platform
+- [Dependabot](https://dependabot.com) - Automated dependency updates
+- [SonarCloud](https://sonarcloud.io) - Quality tests platform
+- [README-template.md](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) - An awesome README template from @PurpleBooth
 
 ## Contributing
 
@@ -66,8 +66,8 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Emmanuel Lesné** - *Project creator & maintainer* - [Emmanuel35](https://github.com/Emmanuel35)
-* **Clément Lesné** - *Initial work & maintainer* - [clementlesne](https://github.com/clementlesne)
+- **Emmanuel Lesné** - *Project creator & maintainer* - [Emmanuel35](https://github.com/Emmanuel35)
+- **Clément Lesné** - *Initial work & maintainer* - [clementlesne](https://github.com/clementlesne)
 
 ## License
 

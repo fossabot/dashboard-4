@@ -43,9 +43,30 @@ To let go of the horses (unit tests + linting), all you have to do is type:
 npm run test
 ```
 
+Several tools integrated to the continuous deployment are used to automatically & proactively ensure the quality of our binaries (functional, security, code quality):
+
+1. Application of **unit tests** on the application
+2. Static files **generation based on sources** (React.js files are basically big pre-compiled html/js/css files)
+3. **Container** generation
+4. Testing the containerized application [following OWASP ZAP **security tests**](https://github.com/zaproxy/zaproxy)
+
 ## Deployment
 
-Enterprise Flows Repisitory is straightforward: [a container image is published to Docker Hub](https://hub.docker.com/r/enterpriseflowsrepository/dashboard). See its attached README.
+Enterprise Flows Repisitory is straightforward: [each build is published to Docker Hub](https://hub.docker.com/r/enterpriseflowsrepository/dashboard).
+
+This allow our app to start in less than 500 milliseconds.
+
+### Development environement
+
+Start the container to your own environement (work well with 50 MiB RAM & 0.05 CPU):
+
+```bash
+docker run -t --memory="50m" --cpus=".05" -p 8080:8080 enterpriseflowsrepository/dashboard
+```
+
+### Production environement
+
+We advise the usage of Kubernetes as the orchestrator of the application. Thanks to its stateless behavior, you can easily integrate it. See the k8s deployement files included for more info about it (path `src/main/k8s`).
 
 ## Built With
 
@@ -55,6 +76,8 @@ Enterprise Flows Repisitory is straightforward: [a container image is published 
 - [Dependabot](https://dependabot.com) - Automated dependency updates
 - [SonarCloud](https://sonarcloud.io) - Quality tests platform
 - [README-template.md](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2) - An awesome README template from @PurpleBooth
+- [OWASP Zed Attack Proxy](https://github.com/zaproxy/zaproxy) - Security tools to find security vulnerabilities in web applications
+- [Alpine Linux distribution](https://alpinelinux.org/) - A security-oriented, lightweight Linux distribution based on musl libc and busybox
 
 ## Contributing
 

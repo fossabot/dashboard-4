@@ -1,8 +1,10 @@
 /* eslint consistent-return:0 import/order:0 */
 
 const express = require('express');
-const logger = require('./logger');
+const helmet = require('helmet');
+const { resolve } = require('path');
 
+const logger = require('./logger');
 const argv = require('./argv');
 const port = require('./port');
 const setup = require('./middlewares/frontendMiddleware');
@@ -11,11 +13,11 @@ const ngrok =
   (isDev && process.env.ENABLE_TUNNEL) || argv.tunnel
     ? require('ngrok')
     : false;
-const { resolve } = require('path');
 const app = express();
 
-// disable X-Powered-By header, because it exposes information about the used frameworks to potential attackers
-app.disable('etag');
+// Helmet can help protect your app from some well-known web vulnerabilities by setting HTTP headers appropriately
+// See: https://www.npmjs.com/package/helmet
+app.use(helmet());
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {

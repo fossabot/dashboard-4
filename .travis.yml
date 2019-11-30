@@ -56,10 +56,10 @@ script:
 - npm run build
 # Build the container
 - docker build --file deployment/docker/Dockerfile -t "$CONTAINER_NAME" .
-# Test the container by attacking the app
-- ./deployment/tests/security-owasp-zap.sh
 
 after_success:
+# Test the container by attacking the app
+- ./deployment/tests/security-owasp-zap.sh
 # Launch SonarQube implementation then send the report to SonarCloud cloud platform
 - sonar-scanner
 

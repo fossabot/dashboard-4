@@ -61,12 +61,16 @@ script:
 - npm run build
 # Build the container
 - docker build --file deployment/docker/Dockerfile -t "$CONTAINER_NAME" .
+# Run Fossa analysis
+# See: https://docs.fossa.com/docs/travisci
+- fossa analyze
 
 after_success:
 # Launch SonarQube implementation then send the report to SonarCloud cloud platform
 - sonar-scanner
-# Run Fossa
-- fossa analyze
+# Make this build fail if the licence analysis returned a negative result
+# See: https://docs.fossa.com/docs/travisci
+- fossa test
 
 notifications:
   # Notify each build on Slack

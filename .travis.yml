@@ -8,11 +8,6 @@ cache:
   # Cache SonarQube's folder
   - '$HOME/.sonar/cache'
 
-git:
-  # Fix the detached head checkout issue; but we can not anymore have a visibility on olders commits of the tested branch 
-  # See: https://docs.travis-ci.com/user/customizing-the-build#git-clone-depth
-  depth: false
-
 env:
   global:
   # Standard container name (schema: project/application). Used to build the image and push it to the repo

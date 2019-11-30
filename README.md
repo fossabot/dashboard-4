@@ -6,6 +6,7 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=EnterpriseFlowsRepository_dashboard&metric=security_rating)](https://sonarcloud.io/dashboard?id=EnterpriseFlowsRepository_dashboard)
 ![Licence](https://img.shields.io/github/license/EnterpriseFlowsRepository/dashboard)
 ![Last commit](https://img.shields.io/github/last-commit/EnterpriseFlowsRepository/dashboard)
+[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B14702%2Fgit%40github.com%3AEnterpriseFlowsRepository%2Fdashboard.git.svg?type=shield)](https://app.fossa.com/projects/custom%2B14702%2Fgit%40github.com%3AEnterpriseFlowsRepository%2Fdashboard.git?ref=badge_shield)
 
 General-purpose web UI for Enterprise Flows Repository clusters.
 

@@ -53,8 +53,6 @@ before_install:
 - "curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash"
 
 script:
-# Launch test jobs
-- npm test -- --maxWorkers=4
 # Hardcode the build versions to the app
 - printf "VERSION_SHORT=${CONTAINER_TAG_SHORT}\nVERSION=${CONTAINER_TAG_FULL}" > .env
 # Build the Node.js binaries
@@ -66,6 +64,8 @@ script:
 - fossa analyze
 
 after_success:
+# Launch test jobs
+- npm test -- --maxWorkers=4
 # Launch SonarQube implementation then send the report to SonarCloud cloud platform
 - sonar-scanner
 # Make this build fail if the licence analysis returned a negative result

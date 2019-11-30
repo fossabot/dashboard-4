@@ -6,6 +6,7 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=EnterpriseFlowsRepository_dashboard&metric=security_rating)](https://sonarcloud.io/dashboard?id=EnterpriseFlowsRepository_dashboard)
 ![Licence](https://img.shields.io/github/license/EnterpriseFlowsRepository/dashboard)
 ![Last commit](https://img.shields.io/github/last-commit/EnterpriseFlowsRepository/dashboard)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FEnterpriseFlowsRepository%2Fdashboard.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FEnterpriseFlowsRepository%2Fdashboard?ref=badge_shield)
 
 General-purpose web UI for Enterprise Flows Repository clusters.
 
@@ -72,3 +73,6 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FEnterpriseFlowsRepository%2Fdashboard.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FEnterpriseFlowsRepository%2Fdashboard?ref=badge_large)
